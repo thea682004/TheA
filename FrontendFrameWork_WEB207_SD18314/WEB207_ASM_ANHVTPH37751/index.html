@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ Gear TheAnh</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+    <!-- Nhúng Angular -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script>
+        // Khởi tạo ng-app
+        var app = angular.module('myApp', ['ngRoute']);
+        // Khởi tạo ng-controller
+        app.controller('gearTheAnhCtrl', function ($scope, $http, $routeParams) {
+            $scope.danhMucSanPham = [];
+            $scope.danhSachSanPham = [];
+            $http({
+                method: 'GET',
+                url: 'http://localhost:3000/category'
+            }).then(function (response) {
+                $scope.danhMucSanPham = response.data
+            })
+            $http({
+                method: 'GET',
+                url: 'http://localhost:3000/product'
+            }).then(function (response) {
+                $scope.danhSachSanPham = response.data
+            })
+
+            // Onclick DM
+            $scope.clickDM = function (id) {
+                console.log('Danh mục của: ', id)
+
+                $http({
+                    method: 'GET',
+                    url: 'http://localhost:3000/product',
+                    params: {
+                        id_Category: id
+                    }
+                }).then(function (response) {
+                    $scope.danhSachSanPham = response.data
+                })
+            }
+        })
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="gearTheAnhCtrl">
+        <!-- Khu vực header (navbar) -->
+        <div class="thanh-navbar">
+            <nav id="navbar-example2"
+                class="navbar navbar-expand-lg bg-body-tertiary shadow bg-body-tertiary rounded sticky-top">
+                <div class="container">
+                    <a href="index.html" class="me-5">
+                        <img src="img/Logo_Main.jpg" style="height: 60px;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+                            style="--bs-scroll-height: 100px;">
+                            <li class="nav-item">
+                                <a class="nav-link" ng-click="clickDM(null)" aria-current="page" href="index.html">TRANG
+                                    CHỦ</a>
+                            </li>
+                            <li class="nav-item" ng-repeat="item in danhMucSanPham">
+                                <a class="nav-link" ng-click="clickDM(item.id)" href="#">{{item.nameCategory}}</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#company-services">DỊCH VỤ</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    GIỚI THIỆU
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Về Website GEAR THEANH</a></li>
+                                    <li><a class="dropdown-item" href="#">Liên hệ</a></li>
+                                    <li><a class="dropdown-item" href="#">Góp ý</a></li>
+                                    <li><a class="dropdown-item" href="#">Tư vấn</a></li>
+                                    <li><a class="dropdown-item" href="#">Chính sách bảo hành</a></li>
+                                    <li><a class="dropdown-item" href="#">Hỗ trợ</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <!-- Khu vực đăng ký đăng nhập giỏ hàng -->
+                        <ul class="navbar-nav">
+                            <!-- Icon search -->
+                            <li class="nav-item">
+                                <a href="#" class="btn">
+                                    <i class="fa-solid fa-magnifying-glass fa-beat"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="btn">
+                                    <i class="fa-solid fa-cart-shopping fa-beat"></i>
+                                </a>
+                            </li>
+                            <!-- Icon user đăng nhập đăng ký -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user fa-beat"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="pages/product/01_Sign_in.html">Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="pages/product/02_Sign_up.html">Đăng ký</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Khu vực slide -->
+        <div class="container-fluid mt-2">
+            <!-- Slide -->
+            <!-- Carousel -->
+            <div>
+                <div id="demo" class="carousel slide overflow-hidden" data-bs-ride="carousel" style="height: 250px;  ">
+
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="5"></button>
+                    </div>
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="img/banner_1.webp" alt="Card" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner_2.jpg" alt="Vgaa" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner_3.jpg" alt="Vgaa" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner_4.jpg" alt="Vgaa" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner_5.webp" alt="Vgaa" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="img/banner_6.webp" alt="Vgaa" class="d-block w-100">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Khu vực danh sách sản phẩm -->
+        <div class="container mt-4">
+            <div class="d-flex justify-content-center">
+                <h3>SẢN PHẨM</h3>
+            </div>
+            <div style="width: 30%; margin-right: 100px" class="position-relative mb-3">
+                <input type="text" class="form-control" ng-model="search" placeholder="Tìm kiếm">
+                <i class="fa-solid fa-magnifying-glass position-absolute top-0 end-0 p-2" style="font-size: 20px;"></i>
+            </div>
+            <div class="row">
+                <!-- Sản phẩm -->
+                <div class="col-3" ng-repeat="item in danhSachSanPham.slice(0,100) | filter: {name_product:search}">
+                    <div class="border rounded overflow-hidden mb-4">
+                        <!-- Hiển thị ảnh -->
+                        <div class="bg-light d-flex justify-content-center align-items-center" style="height: 390px;">
+                            <img ng-src="{{item.img}}" class="mh-100 mw-100">
+                        </div>
+                        <div class="container mt-4">
+                            <div class="product-container p-2">
+                                <h5 5 class="product-title">{{item.name_product}}</h5>
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <div class="fw-bold product-price">{{item.product_price}}₫</div>
+                                        <div class="text-decoration-line-through original-price">
+                                            {{item.original_price}}₫</div>
+                                    </div>
+                                    <div class="discount-box" style="margin-top: 10px;">
+                                        <div class="discount-badge" style="background-color: #e74c3c;
+                                    color: #fff;
+                                    padding: 3px 6px;
+                                    border-radius: 3px;">-{{item.discount}}%</div>
+                                    </div>
+                                </div>
+                                <div class="mt-1"><span style="font-weight: bold; color:#b9bf3e;">0.0</span>⭐
+                                    <span style="font-size:small;">(0 đánh giá)</span>
+                                </div>
+                                <div class="buy-now-btn mt-2">
+                                    <button class="btn btn-danger rounded-pill w-100 btn-sm">MUA NGAY</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <hr>
+        <div class="container">
+            <div ng-view>
+            </div>
+        </div>
+
+
+        <!-- Dịch vụ -->
+        <section id="company-services" class="mt-3"></section>
+        <div class="container">
+            <div class="row mb-5">
+                <h1 class="text-uppercase text-center mb-5">Dịch vụ</h1>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="tab px-4 py-4 shadow bg-body-tertiary rounded mx-3 text-center">
+                        <p class="fw-bold fs-5"><i class="fa-solid fa-truck"></i> FREE DELIVERY</p>
+                        <p>Hỗ trợ miễn phí giao hàng trong nội thành</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="tab px-4 py-4 shadow bg-body-tertiary rounded mx-3 text-center">
+                        <p class="fw-bold fs-5"><i class="fa-solid fa-star"></i> QUALITY</p>
+                        <p>Đảm bảo chất lượng sản phẩm</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="tab px-4 py-4 shadow bg-body-tertiary rounded mx-3 text-center">
+                        <p class="fw-bold fs-5"><i class="fa-solid fa-medal"></i> DAILY OFFERS</p>
+                        <p>Ưu đãi hàng ngày</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="tab px-4 py-4 shadow bg-body-tertiary rounded mx-3 text-center">
+                        <p class="fw-bold fs-5"><i class="fa-solid fa-shield-halved"></i> 100% SECURE PAYMENT</p>
+                        <p>Thanh toán dễ dàng bảo mật</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="tab px-4 py-4 shadow bg-body-tertiary rounded mx-3 text-center">
+                        <p class="fw-bold fs-5">GUARANTEE</p>
+                        <p>Được bảo hành từ 6 tháng đến 1 năm</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4">
+                    <div class="tab px-4 py-4 shadow bg-body-tertiary rounded mx-3 text-center">
+                        <p class="fw-bold fs-5"><i class="fa-brands fa-product-hunt"></i> PRODUCT</p>
+                        <p>Sản phẩm chất lượng đa dạng mẫu mã</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Khu vực Footer -->
+        <footer class="container-fluid">
+            <div class="row bg-dark text-light pt-4 pb-1 shadow d-flex align-items-start">
+                <div class="col-12 col-sm-6 col-md-3">
+
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="px-5 py-5">
+                        <p class="fw-medium fs-6 text-uppercase"
+                            style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Về GEAR THEANH</p>
+                        <p class="fw-light"><i class="fa-solid fa-circle-info" style="color: red;"></i> Giới thiệu</p>
+                        <p class="fw-light"><i class="fa-solid fa-circle-info" style="color: red;"></i> Tuyển dụng</p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="px-5 py-5">
+                        <p class="fw-medium fs-6 text-uppercase"
+                            style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">TỔNG ĐÀI HỖ TRỢ (8:00
+                            -
+                            21:00)</p>
+                        <p class="fw-light"><i class="fa-solid fa-phone" style="color: red;"></i> CSKH: <span
+                                style="color: #477bbe; font-weight: bold;">0973682004</span></p>
+                        <p class="fw-light"><i class="fa-solid fa-screwdriver-wrench" style="color: red;"></i> HTKT:
+                            <span style="color: #477bbe; font-weight: bold;">0973682004</span></p>
+                        <p class="fw-light"><i class="fa-solid fa-envelope" style="color: red;"></i> Email: <span
+                                style="color: #477bbe; font-weight: bold;">thea682004@gmail.com</span></p>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3">
+                    <div class="px-5 py-5">
+                        <p class="fw-medium fs-6 text-uppercase"
+                            style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">KẾT NỐI VỚI CHÚNG TÔi
+                        </p>
+                        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                            <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                    class="fa-brands fa-facebook fa-beat" style="color: rgb(38, 91, 134);"></i></button>
+                            <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                    class="fa-brands fa-instagram fa-beat" style="color: purple;"></i></button>
+                            <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                    class="fa-brands fa-tiktok fa-beat" style="color: black;"></i></button>
+                            <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                    class="fa-brands fa-youtube fa-beat" style="color: red;"></i></button>
+                        </div>
+                    </div>
+                    <h6>Đăng ký email để nhận tin khuyến mãi</h6>
+                    <form class="d-flex" role="search">
+                        <input class="form-control" type="search" placeholder="Nhập Email" aria-label="Search">
+                        <button class="btn btn-danger" type="submit">NHẬN</button>
+                    </form>
+                </div>
+
+            </div>
+            <div class="row bg-black text-light text-center pt-4 pb-1 shadow">
+                <p class="fw-light">©Copyright GEAR THEANH. All rights reserved</p>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

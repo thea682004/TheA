@@ -1,0 +1,47 @@
+<!-- Thêm sản phẩm -->
+<div class="mb-4 mt-3">
+    <h3>Thêm Sản Phẩm</h3>
+    <form>
+        <div class="mb-3">
+            <label for="" class="form-label mt-3">ID sản phẩm</label>
+            <input ng-model="product.id" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="productName" class="form-label">Tên sản phẩm</label>
+            <input ng-model="product.name_product" type="text" class="form-control" id="productName" required>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Loại sản phẩm</label>
+            <select ng-model="product.name_category" name="" id="" class="form-control">
+                <option value="">-Lựa Chọn-</option>
+                <option value="CPU">CPU</option>
+                <option value="RAM MÁY TÍNH">RAM MÁY TÍNH</option>
+                <option value="VGA - CARD MÀN HÌNH">VGA - CARD MÀN HÌNH</option>
+                <option value="Ổ CỨNG">Ổ CỨNG</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">URL Hình ảnh sản phẩm</label>
+            <input ng-model="product.img" type="" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Giá</label>
+            <input ng-model="product.product_price" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Giá niêm yết</label>
+            <input ng-model="product.original_price" type="text" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">% giảm</label>
+            <input ng-model="product.discount" type="text" class="form-control" required>
+        </div>
+        <!-- Button -->
+        <div class="d-flex justify-content-center">
+            <button type="submit" ng-click="onClickCreate()" class="btn btn-success">Tạo sản phẩm</button>
+        </div>
+        <div class="alert alert-danger mt-1" ng-hide="formInvalid">
+            {{formInvalid}}
+        </div>
+    </form>
+</div>

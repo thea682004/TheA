@@ -1,0 +1,27 @@
+<h1>Danh sách sản phẩm</h1>
+<button class="btn btn-success">Tạo mới</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Danh mục</th>
+            <th>Tương tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in listProduct">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.category}}</td>
+            <td style="width: 1px;" class="text-nowrap">
+                <button class="btn btn-primary rounded-pill">Xem</button>
+                <button class="btn btn-warning rounded-pill">Sửa</button>
+                <button class="btn btn-danger rounded-pill">Xóa</button>
+
+            </td>
+        </tr>
+    </tbody>
+</table>

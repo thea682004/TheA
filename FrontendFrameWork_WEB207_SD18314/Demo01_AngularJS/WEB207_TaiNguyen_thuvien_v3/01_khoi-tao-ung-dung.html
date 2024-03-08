@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB207_TaiNguyen_thuvien</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    
+    <!-- //Khu vực viết code logic -->
+
+    <!-- Khởi tạo ng-app -->
+    <script> var app = angular.module('myApp',[])
+    // Khởi tạo ng-controller
+    app.controller('khoiTaoCtrl',function(){
+    // Viết code logic của khoiTaoCtrl
+        console.log('khoiTaoCtrl xin chao mn.');
+    })
+    </script>
+</head>
+<body ng-app="myApp">
+    <h3>#Khởi tạo ứng dụng AngularJS</h3>
+    <p>Nhúng thư viện AngularJS</p>
+    <p>2. Khởi tạo ng-app</p>
+    <p>2.1 Khởi tạo tại code html</p>
+    <p>2.2 Khởi tạo tại code js</p>
+
+    <p>3. Khởi tạo ng-controller</p>
+    <p>3.1 Khởi tạo tại code html</p>
+    <p>3.2 Khởi tạo tại code js</p>
+    <div ng-controller="khoiTaoCtrl">
+
+    </div>
+</body>
+</html>

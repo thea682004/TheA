@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Nhúng bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng font-icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h3># Giới thiệu font-icon</h3>
+        <div>
+            <h6>Cách sử dụng</h6>
+            <!-- 1. Nhúng thư viện font-icon -->
+            <!-- 2. Truy cập website tài liệu để tìm icon và sử dụng -->
+            <div>
+                <i class="fa-brands fa-searchengin"></i>
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <h6>Kích thước icon</h6>
+            <div>
+                <i class="fa-solid fa-cart-shopping fa-sm"></i>
+                <i class="fa-solid fa-cart-shopping fa-md"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+                <i class="fa-solid fa-cart-shopping fa-lg"></i>
+                <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                <i class="fa-solid fa-cart-shopping fa-2xl"></i>
+            </div>
+        </div>
+
+
+        <hr>
+        <h3># Giới thiệu badge</h3>
+        <div>
+            <h6>Badge cơ bản</h6>
+            <div>
+                <span class="badge bg-danger">Hết hàng</span>
+                <span class="badge bg-success">Còn hàng</span>
+            </div>
+
+            <h6>Bo tròn góc</h6>
+            <div>
+                <span class="badge bg-danger rounded-pill">Hết hàng</span>
+            </div>
+
+            <h6>Kết hợp với component khác</h6>
+            <div>
+                <button class="btn btn-primary">
+                    Thông báo <span class="badge bg-danger">99</span>
+                </button>
+            </div>
+
+            <h6>Làm icon giỏ hàng có bộ đếm</h6>
+            <div>
+                <button class="btn position-relative pe-4 pt-2">
+                    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                    <span class="badge bg-danger rounded-pill position-absolute top-0 end-0">99</span>
+                </button>
+
+                <a href="#" class="btn position-relative pe-4 pt-2">
+                    <i class="fa-solid fa-cart-shopping fa-xl"></i>
+                    <span class="badge bg-danger rounded-pill position-absolute top-0 end-0">99</span>
+                </a>
+
+                <!-- Ứng dụng kiến thức css về position-relative và position-absolute để di chuyển bộ đếm vào vị trí phù hợp -->
+            </div>
+        </div>
+
+
+        <hr>
+        <h3># Giới thiệu modal (popup)</h3>
+        <div>
+            <h6>Modal cơ bản</h6>
+            <div>
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalXacNhanXoa">
+                    Xác nhận xoá
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="modalXacNhanXoa">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <h4 class="modal-title">Xác nhận xoá</h4>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body">
+                                Bạn có chắc chắn muốn xoá không?
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light" data-bs-dismiss="modal">Huỷ</button>
+                                <button class="btn btn-danger">Xác nhận xoá</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <hr>
+        <h3># Giới thiệu table</h3>
+        <div>
+            <h6>Table cơ bản</h6>
+            <div>
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Firstname</th>
+                            <th>Lastname</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Doe</td>
+                            <td>john@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>Mary</td>
+                            <td>Moe</td>
+                            <td>mary@example.com</td>
+                        </tr>
+                        <tr>
+                            <td>July</td>
+                            <td>Dooley</td>
+                            <td>july@example.com</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <hr>
+        <h3># Giới thiệu d-flex</h3>
+        <div>
+            <h6>Khai báo box cần thiết</h6>
+            <div class="bg-secondary">
+                <div class="bg-success">
+                    <div>box 1.1</div>
+                </div>
+
+                <div class="bg-warning">
+                    <div>box 2.1</div>
+                    <div>box 2.2</div>
+                </div>
+
+                <div class="bg-danger">
+                    <div>box 3.1</div>
+                    <div>box 3.2</div>
+                    <div>box 3.3</div>
+                </div>
+            </div>
+
+
+            <h6>Sử dụng .d-flex</h6>
+            <div class="bg-secondary d-flex">
+                <div class="bg-success">
+                    <div>box 1.1</div>
+                </div>
+
+                <div class="bg-warning">
+                    <div>box 2.1</div>
+                    <div>box 2.2</div>
+                </div>
+
+                <div class="bg-danger">
+                    <div>box 3.1</div>
+                    <div>box 3.2</div>
+                    <div>box 3.3</div>
+                </div>
+            </div>
+
+            <h6>Sử dụng .d-flex .align-items-xxx | Để căn trên dưới </h6>
+            <div class="bg-secondary d-flex align-items-center">
+                <div class="bg-success">
+                    <div>box 1.1</div>
+                </div>
+
+                <div class="bg-warning">
+                    <div>box 2.1</div>
+                    <div>box 2.2</div>
+                </div>
+
+                <div class="bg-danger">
+                    <div>box 3.1</div>
+                    <div>box 3.2</div>
+                    <div>box 3.3</div>
+                </div>
+            </div>
+
+
+            <h6>Sử dụng .d-flex .justify-content-xxx | Để căn trái phải </h6>
+            <div class="bg-secondary d-flex justify-content-between">
+                <div class="bg-success">
+                    <div>box 1.1</div>
+                </div>
+
+                <div class="bg-warning">
+                    <div>box 2.1</div>
+                    <div>box 2.2</div>
+                </div>
+
+                <div class="bg-danger">
+                    <div>box 3.1</div>
+                    <div>box 3.2</div>
+                    <div>box 3.3</div>
+                </div>
+            </div>
+
+            <h6>Sử dụng .d-flex .justify-content-center .align-items-center</h6>
+            <div class="bg-secondary d-flex justify-content-center align-items-center">
+                <div class="bg-success">
+                    <div>box 1.1</div>
+                </div>
+
+                <div class="bg-warning">
+                    <div>box 2.1</div>
+                    <div>box 2.2</div>
+                </div>
+
+                <div class="bg-danger">
+                    <div>box 3.1</div>
+                    <div>box 3.2</div>
+                    <div>box 3.3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br>
+</body>
+
+</html>

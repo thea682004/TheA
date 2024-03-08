@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+    <script src="../lib/bootstrap.js"></script>
+    <!-- Nhúng angularjs -->
+    <script src="../lib/angular.js"></script>
+    <!-- Nhúng file angular-route sau khi khai báo angular js -->
+    <script src="../lib/angular-route.js"></script>
+    <!-- Khu vực viết code logic -->
+    <script>
+        // Khởi tạo app
+        var app = angular.module('thuyApp', ['ngRoute']);
+        // Khai báo $routeProvider
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when('/list-product', {
+                    templateUrl: 'pages/product/list.html'
+                })
+                .when('/create-product', {
+                    templateUrl: 'pages/product/create.html'
+                })
+                .when('/detail-product/:id', {
+                    templateUrl: 'pages/product/detail.html',
+                })
+                .when('/edit-product/:id', {
+                    templateUrl: 'pages/product/edit.html'
+                })
+        });
+    </script>
+    <!-- Nhúng file js sau khi khởi tạo app và khai báo controller -->
+    <script src="pages/product/detail.js"></script>
+</head>
+<body ng-app="thuyApp">
+    <nav class="navbar navbar-expand-sm bg-body-tertiary">
+        <div class="container-fluid">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#!list-product">Trang danh sách</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!create-product">Trang tạo mới</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!detail-product/SP01">Trang trang chi tiết</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!edit-product/SP01">Trang chỉnh sửa</a>
+                </li>
+            </ul>
+        </div>
+      </nav>
+
+      <!-- Khai báo ng-view  -->
+      <div class="container">
+            <div ng-view></div>
+      </div>
+</body>
+</html>

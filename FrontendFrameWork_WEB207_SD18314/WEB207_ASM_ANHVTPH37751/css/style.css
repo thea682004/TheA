@@ -1,0 +1,87 @@
+.thanh-navbar {
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: bold;
+}
+
+.product-price {
+    color: cadetblue;
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.original-price {
+    text-decoration: line-through;
+    color: gray;
+    font-family: "Chakra Petch", sans-serif
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: bold;
+    font-family: "Chakra Petch", sans-serif
+}
+
+.buy-now-btn {
+    font-family: "Chakra Petch", sans-serif;
+    margin-top: 10px;
+    font-weight: bolder
+
+}
+
+.product-container {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.tab:hover {
+    transform: scale(1.1);
+    /* Khi di chuột vào, tab sẽ phóng to lên 10% */
+}
+.tab {
+    transition: transform 0.3s ease-in-out;
+}
+.card-text{
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: bold;
+    color: red;
+}
+.card-title{
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: bold;
+}
+
+/* CSS detail */
+
+.h2 {
+    font-size: 30px;
+    /* Kích thước font chữ */
+    font-weight: bold;
+    /* Kiểu chữ */
+    font-family: "Chakra Petch", sans-serif;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.discount {
+    border: 1px solid #dc3545;
+    padding: 4px;
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.discount-square {
+    width: 30px;
+    height: 30px;
+    background-color: #dfdcdc;
+    /* Màu đỏ */
+    color: #910b0b;
+    /* Màu chữ trắng */
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+.trangDangKy{
+    font-family: "Chakra Petch", sans-serif;
+    font-weight: bold;
+}

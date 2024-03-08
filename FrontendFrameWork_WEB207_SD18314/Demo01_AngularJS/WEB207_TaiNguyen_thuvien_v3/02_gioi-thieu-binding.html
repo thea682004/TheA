@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Nhúng bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+    <!-- Nhúng Angular -->
+    <script src="lib/angular.js"></script>
+    <!-- Khu vực viết code logic js -->
+    <script>
+        //Khởi tạo ng-app
+        var app = angular.module('myApp',[]);
+        //Khởi tạo ng-controller
+        app.controller('bindingCtrl',function($scope){
+            //Khu vực viết code logic của bindingCtrl
+            console.log('bindingCtrl xin chao mn')
+
+            // Data-binding
+            $scope.maMon = "WEB207";
+            $scope.namSinh=2003;
+            $scope.danhSachMaSV = ['PH001','PH002','PH003']//Kiểu dữ liệu mảng
+
+            //Property binding
+            $scope.cauNoiYeuThich = "Thích câu của thầy"
+            $scope.imgSrc = "img/logo_bootstrap.webp"
+
+            //Event binding
+            $scope.onClickDangKy = function(){
+                alert("Chúc mừng bạn đã đăng ký thành công")
+            }
+
+            //2-way-binding
+            $scope.hoTen = "Nguyễn Văn A"
+            $scope.soLuongSanPham = 0
+        })
+    </script>
+</head>
+<body ng-app="myApp">
+    <!-- Khởi tạo 1 app có tên là "myApp" -->
+    <!-- Khởi tạo 1 controller có tên là "bindingCtrl" -->
+    <div ng-controller="bindingCtrl">
+        <h1>Đây là bindingCtrl</h1>
+
+        <hr>
+        <h3>#Giới thiệu về data binding</h3>
+        <div>
+            <p>Dùng để hiện thị dữ liệu của biến ra html</p>
+            <p>Như các bạn đã được học javascript cơ bản thì có mấy kiểu khai báo biến?</p>
+            3 kiểu: var, let, const
+            <p>AngularJS có thêm 1 kiểu khai báo nwuxa là $scope</p>
+
+            <h6>Ví dụ: hiển thị biến $scope string ra html</h6>
+            <p>Mã môn: {{maMon}}</p>
+            <p>Năm sinh: {{namSinh}}</p>
+            <ul>
+                <li ng-repeat="item in danhSachMaSV">
+                    {{item}}
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <h3>#Giới thiệu về property binding</h3>
+        <div>
+            <p>Dùng để hiển thị giá trị biến vào property của thẻ html</p>
+            <h6>Hiển thị giá trị biến vào property value của thẻ input</h6>
+            <input type="text" class="form-control" value="{{cauNoiYeuThich}}">
+            <input type="text" class="form-control" ng-value="cauNoiYeuThich">
+
+            <h6>Binding ra property src của thẻ img</h6>
+            <img src="img/logo_bootstrap.webp" style="height: 50px">
+            <img ng-src="{{imgSrc}}" style="height: 50px;">
+        </div>
+        <hr>
+        <h3>#Giới thiệu về event binding</h3>
+        <div>
+            <p>Dùng để bắt sự kiện của người dùng</p>
+            <h6>Bắt sự kiện click</h6>
+            <button class="btn btn-primary" ng-click="onClickDangKy()">Đăng ký </button>
+        </div>
+        <hr>
+        <h3>#Giới thiệu về two-way data binding</h3>
+        <div>
+            <p>Dùng để tự động đồng bộ giá trị biến 2 chiều giữa code JS và HTML</p>
+            <p>Nghĩa là khi html thay đổi giá trị thì code JS tự nhận giá trị mới 
+                và khi code JS thay đổi giá trị thì HTMl tự dộng hiển thị giá trị mới
+            </p>
+            <span class="form-label">Mời nhâp tên</span>
+            <input type="text" class="form-control" ng-model="hoTen">
+            
+            <p>Tên của bạn là: {{hoTen}} </p>
+        </div>
+
+        <hr>
+        <h3>Giới thiêu thêm vài tính năng hỗ trợ hiển thị khác</h3>
+        <input type="text" ng-model="soLuongSanPham">
+        <h6>ng-show | ng-hide</h6>
+        <span class="badge bg-success" ng-show="soLuongSanPham>0">Còn hàng</span>
+        <span class="badge bg-danger" ng-show="soLuongSanPham <= 0">Hết hàng</span>
+    </div>
+</body>
+</html>

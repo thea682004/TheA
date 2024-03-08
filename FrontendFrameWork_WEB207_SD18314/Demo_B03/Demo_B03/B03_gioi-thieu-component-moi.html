@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB207_TaiNguyen_thuvien</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <!-- <script src="lib/font-fontawesome-ae333ffef2.js"></script> -->
+
+    <!-- Nhúng AngularJS -->
+    <!-- <script src="lib/angular.js"></script> -->
+    <!-- <script src="lib/angular-route.js"></script> -->
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Giới thiệu component mới</h1>
+
+        <h3># Giới thiệu navbar | Dùng để làm header</h3>
+        <!-- Lưu ý: Sử dụng navbar ở ngoài cùng. Không sử dụng trong thẻ .container -->
+    </div>
+
+    <!-- Khu vực sử dụng navbar (con trực tiếp của thẻ body) -->
+
+    <h6>Navbar cơ bản</h6>
+    <!-- Vào w3school và copy -->
+    <nav class="navbar navbar-expand-sm bg-light">
+
+        <div class="container-fluid">
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <hr>
+    <h6>Navbar fix width</h6>
+    <p>Sửa class <code>.container-fluid</code> thành class <code>.container</code> là được</p>
+    <!-- Vào w3school và copy -->
+    <nav class="navbar navbar-expand-sm bg-light">
+
+        <div class="container">
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+    <hr>
+    <h6>Đổi màu navbar</h6>
+    <p>Sử dụng các class <code>bg-xxx</code> đổi màu</p>
+    <p>Nếu màu nền là màu tối. Thì bổ sung thêm class <code>.navbar-dark</code> để có chữ màu sáng</p>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <div class="container-fluid">
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <hr>
+    <h6>Bổ sung thêm component vào navbar</h6>
+    <!-- Bổ sung thêm logo -->
+    <!-- Bổ sung thêm button đăng nhập, đăng ký -->
+    <!-- Bổ sung thêm thông tin user -->
+    <!-- ... -->
+    <!-- Thêm class shadow để cho navbar đổ bóng -->
+    <p>Lưu ý: Navbar này được app .d-flex và .justify-content-between</p>
+    <nav class="navbar navbar-expand-sm bg-light shadow">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a href="#">
+                <!-- Bổ sung css max-heigh | để cho ảnh được nhỏ lại -->
+                <img src="img/logo_bootstrap.webp" style="max-height: 40px;">
+            </a>
+
+            <!-- Thông tin user đã đăng nhập -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link disabled text-dark" href="#">Xin chào Admin</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Đăng xuất</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+
+
+
+    <div class="container">
+        <h3># Giới thiệu về nav | Dùng để làm menu dọc</h3>
+        <div>
+            <!-- Sang bên w3chool copy -->
+            <h6>Nav cơ bản</h6>
+            <div>
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tạo mới sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tạo mới danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách đơn hàng</a>
+                    </li>
+                </ul>
+            </div>
+
+            <hr>
+            <h6>Nav theo chiều dọc</h6>
+            <div>
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tạo mới sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tạo mới danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách đơn hàng</a>
+                    </li>
+                </ul>
+            </div>
+
+
+            <hr>
+            <h6>Nav bôi màu item active</h6>
+            <div style="width: 250px;">
+                <ul class="nav flex-column nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Tạo mới sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tạo mới danh mục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Danh sách đơn hàng</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+        <h1>==> 1. Thiết kế layout trang admin</h1>
+        <h1>==> 1. Thiết kế trang tạo mới sản phẩm</h1>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <br><br><br><br>
+</body>
+
+</html>

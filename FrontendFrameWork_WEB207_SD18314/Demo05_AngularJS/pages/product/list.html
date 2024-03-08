@@ -1,0 +1,28 @@
+<h1>Danh sách sản phẩm</h1>
+<div class="d-flex justify-content-end">
+<a href="#!create-product" class="btn btn-success">Tạo mới</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Danh mục</th>
+            <th>Tương tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in listProductCtrl">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.category}}</td>
+            <td style="width: 1px;" class="text-nowrap">
+                <a class="btn btn-primary rounded-pill" href="#!detail-product/{{item.id}}">Xem</a>
+                <a class="btn btn-warning rounded-pill" href="#!edit-product/{{item.id}}">Sửa</a>
+                <a class="btn btn-danger rounded-pill"  ng-click="onClickDelete(item.id)">Xóa</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

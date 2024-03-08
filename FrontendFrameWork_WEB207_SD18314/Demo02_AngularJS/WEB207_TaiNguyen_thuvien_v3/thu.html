@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB207_TaiNguyen_thuvien</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+    <!-- Nhúng thư viện -->
+    <script src="lib/angular.js"></script>
+    <!-- Mở thẻ script để viết code logic -->
+    <script>
+        //Khoi tao ng-app
+        var app = angular.module('myApp',[])
+        
+    </script>
+</head>
+
+<body ng-app="myApp">
+    <div class="container" ng-controller="danhSachSanPhamCtrl">
+        <!-- Khu vực tiêu đề trang -->
+        <h3>Danh sách sản phẩm</h3>
+
+        <!-- Khu vực bộ lọc -->
+        <span>Lọc theo danh mục: </span>
+        <button class="btn btn-primary" ng-click="onClickDanhMuc(null)">Tất cả</button>
+        <button class="btn btn-light" ng-repeat="item in danhSachDanhMuc"
+            ng-click="onClickDanhMuc(item.id)">{{item.ten}}</button>
+        <!-- Khu vực button -->
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-success">Tạo mới sản phẩm</button>
+        </div>
+
+        <!-- Khu vực bảng -->
+        <table class="table table-bordered mt-2">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Tương tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in danhSachSanPham">
+                    <td>{{item.id}}</td>
+                    <td>
+                        <div class="border rounded bg-light overflow-hidden d-flex justify-content-center align-items-center"
+                            style="height: 80px; width: 80px;">
+                            <img ng-src="{{item.anh}}" class="mw-100 mh-100">
+                        </div>
+                    </td>
+                    <td>{{item.ten}}</td>
+                    <td>{{item.tenDanhMuc}}</td>
+                    <td>
+                        <span class="badge bg-success rounded-pill">Còn hàng</span>
+                        <!-- <span class="badge bg-danger rounded-pill">Hết hàng</span> -->
+                    </td>
+                    <td style="width: 1px;" class="text-nowrap">
+                        <button class="btn btn-primary btn-sm">Xem</button>
+                        <button class="btn btn-warning btn-sm">Sửa</button>
+                        <button class="btn btn-danger btn-sm">Xoá</button>
+                    </td>
+                </tr>
+
+
+
+            </tbody>
+        </table>
+
+
+        <!-- Khu vực phân trang -->
+        <div class="d-flex justify-content-center">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gear TheAnh</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="/lib/bootstrap.css">
+    <script src="/lib/bootstrap.js"></script>
+    <!-- Nhúng Font Icon -->
+    <script src="/lib/font-fontawesome-ae333ffef2.js"></script>
+    <style>
+        body {
+          font-family: 'Arial', sans-serif;
+          background-color: #f8f9fa;
+          margin: 0;
+          padding: 0;
+        }
+    
+        .container {
+          max-width: 1200px;
+          margin: 10px auto;
+          display: flex;
+        }
+    
+        .cart-items {
+          flex: 3;
+        }
+    
+        .cart-item {
+          border: 1px solid #ad1d1f;
+          border-radius: 5px;
+          margin-bottom: 20px;
+          padding: 15px;
+          background-color: #fff;
+        }
+    
+        .cart-item img {
+          max-width: 100px;
+          margin-right: 15px;
+        }
+    
+        .item-details {
+          flex: 1;
+        }
+    
+        .total-box {
+          flex: 1;
+          margin-left: 20px;
+          border: 1px solid #cd142f;
+          border-radius: 5px;
+          padding: 15px;
+          background-color: #fff;
+        }
+      </style>
+</head>
+
+<body>
+    <!-- Khu vực header (navbar) -->
+    <nav class="navbar navbar-expand-sm bg-light shadow">
+        <div class="container">
+
+            <!-- Hiển thị logo và danh mục -->
+            <div class="d-flex align-items-center">
+                <!-- Khu vực logo -->
+                <a href="" class="me-5">
+                    <img src="/img/logo.jpg" style="height: 60px;">
+                </a>
+                <div class="offcanvas-body">
+                    <!-- Khu vục danh mục -->
+                    <ul class="navbar-nav text-uppercase justify-content-end align-items-center flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="03_TrangChu.html">TẤT CẢ SẢN PHẨM</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#company-services">DỊCH VỤ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">RAM MÁY TÍNH</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">CARD MÀN HÌNH</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">BÀN PHÍM & TAI NGHE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">CPU </a>
+                        </li>
+                        <li>
+                            <div class="dropdown">
+                                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                                  TIỆN ÍCH THÊM
+                                </button>
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">Link 1</a></li>
+                                  <li><a class="dropdown-item" href="#">Link 2</a></li>
+                                  <li><a class="dropdown-item" href="#">Link 3</a></li>
+                                </ul>
+                              </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Hiển thị button đăng ký đăng nhập -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="#" class="btn">
+                        <i class="fa-solid fa-magnifying-glass fa-beat"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="Sign_up.html" class="btn">
+                        <i class="fa-solid fa-user fa-beat"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="06_Gio_Hang.html" class="btn">
+                        <i class="fa-solid fa-cart-shopping fa-beat"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!-- Khu vực nội dung chính -->
+
+
+
+
+    <div class="container">
+        <div class="cart-items">
+          <h3 class="mb-4 mt-2">Chi Tiết Giỏ Hàng</h3>
+      
+          <!-- Danh sách sản phẩm đã thêm vào giỏ hàng -->
+          <div class="cart-item d-flex">
+            <img src="img/sanpham_CPU_01.webp" alt="Product Image">
+            <div class="item-details">
+              <h4>Bộ vi xử lý Intel Core i7 14700F/ Turbo up to 5.4GHz</h4>
+              <p>Giá: 10.690.000₫</p>
+              <div class="input-group mb-4" style="width: 205px; margin-top: 20px;">
+                <span class="input-group-text">Số lượng</span>
+                <button class="btn btn-outline-secondary" type="button" id="btnMinus">-</button>
+                <input type="number" class="form-control" value="1" id="quantityInput">
+                <button class="btn btn-outline-secondary" type="button" id="btnPlus">+</button>
+            </div>
+              <p>Tổng: 10.690.000₫</p>
+            </div>
+          </div>
+      
+          <div class="cart-item d-flex">
+            <img src="img/sanpham_VGA_01.webp" alt="Product Image">
+            <div class="item-details">
+              <h4>Card màn hình MSI GeForce RTX 3050 VENTUS 2X XS 8G OC</h4>
+              <p>Giá: 5.990.000₫</p>
+              <div class="input-group mb-4" style="width: 205px; margin-top: 20px;">
+                <span class="input-group-text">Số lượng</span>
+                <button class="btn btn-outline-secondary" type="button" id="btnMinus">-</button>
+                <input type="number" class="form-control" value="1" id="quantityInput">
+                <button class="btn btn-outline-secondary" type="button" id="btnPlus">+</button>
+            </div>
+              <p>Tổng: 5.990.000₫</p>
+            </div>
+          </div>
+        </div>
+      
+        <!-- Khung tổng giá tiền -->
+        <div class="total-box">
+          <h4>Tổng Giá Tiền</h4>
+          <div class="mb-3 mt-3">
+            <label for="coupon" class="form-label">Mã giảm giá</label>
+            <input type="coupon" class="form-control" id="coupon" placeholder="Nhập mã giá (nếu có)" name="coupon">
+          </div>
+          <p>Tổng tiền sản phẩm: 16,680,000₫</p>
+          <p>Phí vận chuyển: 20,000₫</p>
+          <h5>Tổng cộng: 16,700,000₫</h5>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="check1" name="option1" value="something" checked>
+            <label class="form-check-label">
+                Tôi đã đọc và đồng ý với <a href="">điều khoản và điều kiện</a> của website</label>
+          </div>
+          <a href="#" class="btn btn-danger mt-3 rounded-pill">Tiếp tục thanh toán</a>
+        </div>
+      </div>
+
+</body>
+
+</html>

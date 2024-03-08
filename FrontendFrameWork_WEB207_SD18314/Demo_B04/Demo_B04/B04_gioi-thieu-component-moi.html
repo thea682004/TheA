@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB207_TaiNguyen_thuvien</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+    <!-- Nhúng Font Icon -->
+    <!-- <script src="lib/font-fontawesome-ae333ffef2.js"></script> -->
+
+    <!-- Nhúng AngularJS -->
+    <!-- <script src="lib/angular.js"></script> -->
+    <!-- <script src="lib/angular-route.js"></script> -->
+    
+</head>
+<body>
+
+    <div class="container-fluid">
+        <h3>#Giới thiệu row và col</h3>
+
+        <div>
+            <hr>
+            <h6>Khai báo các thẻ div cần thiết</h6>
+            <p>Lưu ý: Khi nào muốn chia màn hình thành nhiều cột theo tỉ lệ thì hay nhớ row và col</p>
+            <p>Khai báo row cho thẻ div ngoài</p>
+            <p>Khi khai báo row, màn hình sẽ được chia thành 12 cột.
+                Lúc này, muốn chia div chiếm tỉ lệ bao nhiêu thì dùng col-1 col-12 tương ứng là được</p>
+
+
+            <div class="row">
+                <div class="col-3">
+                    <div class="bg-primary">#1</div>
+                </div>
+
+                <div class="col-3">
+                    <div class="bg-secondary">#2</div>
+                </div>
+
+                <div class="col-3">
+                    <div class="bg-warning">#3</div>
+                </div>
+
+                <div class="col-3">
+                    <div class="bg-danger">#4</div>
+                </div>
+
+                <div class="col-3">
+                    <div class="bg-success">#5</div>
+                </div>
+            </div>
+
+
+            <hr>
+            <h6>Chia 5 cột</h6>
+            <div class="row">
+                <div class="col">
+                    <div class="bg-primary">#1</div>
+                </div>
+            
+                <div class="col">
+                    <div class="bg-secondary">#2</div>
+                </div>
+            
+                <div class="col">
+                    <div class="bg-warning">#3</div>
+                </div>
+            
+                <div class="col">
+                    <div class="bg-danger">#4</div>
+                </div>
+            
+                <div class="">
+                    <div class="bg-success">#5</div>
+                </div>
+            </div>
+
+
+            <hr>
+            <h6>Chia 5 khi ở laptop, Chia 4 khi ở tablet, Chia 2 khi ở mobile</h6>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-6 col-lg">
+                    <div class="bg-primary">#1</div>
+                </div>
+            
+                <div class="col-md-3 col-sm-6 col-6 col-lg">
+                    <div class="bg-secondary">#2</div>
+                </div>
+            
+                <div class="col-md-3 col-sm-6 col-6 col-lg">
+                    <div class="bg-warning">#3</div>
+                </div>
+            
+                <div class="col-md-3 col-sm-6 col-6 col-lg">
+                    <div class="bg-danger">#4</div>
+                </div>
+            
+                <div class="col-md-3 col-sm-6 col-6 col-lg">
+                    <div class="bg-success">#5</div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

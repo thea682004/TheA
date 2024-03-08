@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Gear TheAnh</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+    <!-- Nhúng Font Icon -->
+    <script src="lib/font-fontawesome-ae333ffef2.js"></script>
+    <!-- Nhúng Angular -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <script>
+        // Khởi tạo ng-app
+        var app = angular.module('myApp', ['ngRoute']);
+        // Khởi tạo ng-controller
+        app.controller('gearTheAnhCtrl', function ($scope, $http, $routeParams) {
+            $scope.danhMucSanPham = [];
+            $scope.danhSachSanPham = [];
+            $http({
+                method: 'GET',
+                url: 'http://localhost:3000/category'
+            }).then(function (response) {
+                $scope.danhMucSanPham = response.data
+            })
+            $http({
+                method: 'GET',
+                url: 'http://localhost:3000/product'
+            }).then(function (response) {
+                $scope.danhSachSanPham = response.data
+            })
+
+            // DM
+            $scope.clickDM = function (id) {
+                console.log('Danh mục của: ', id)
+
+                $http({
+                    method: 'GET',
+                    url: 'http://localhost:3000/product',
+                    params: {
+                        id_Category: id
+                    }
+                }).then(function (response) {
+                    $scope.danhSachSanPham = response.data
+                })
+            }
+        })
+        // Khai báo $routeProvider
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when("/create-product", {
+                    templateUrl: "pages/product/admin/create.html",
+                    controller: "createProductCtrl"
+                })
+                .when("/list-product", {
+                    templateUrl: "pages/product/admin/list.html",
+                    controller: "listProductCtrl"
+                })
+                .when("/detail-product/:id", {
+                    templateUrl: "pages/product/admin/detail.html",
+                    controller: "detailProductCtrl"
+                })
+                .when("/edit-product/:id", {
+                    templateUrl: "pages/product/admin/edit.html",
+                    controller: "editProductCtrl"
+                })
+        })
+    </script>
+    <script src="pages/product/admin/create.js"></script>
+    <script src="pages/product/admin/detail.js"></script>
+    <script src="pages/product/admin/edit.js"></script>
+    <script src="pages/product/admin/list.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
+</head>
+
+<body ng-app="myApp" class="trang-chu">
+    <div ng-controller="gearTheAnhCtrl">
+        <!-- Khu vực header (navbar) -->
+        <div class="thanh-navbar">
+            <nav id="navbar-example2"
+                class="navbar navbar-expand-lg bg-body-tertiary shadow bg-body-tertiary rounded sticky-top">
+                <div class="container">
+                    <a href="" class="me-5">
+                        <img src="img/Logo_Main.jpg" style="height: 60px;">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarScroll">
+                        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+                            style="--bs-scroll-height: 100px;">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#!create-product">TẠO MỚI SẢN PHẨM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#!list-product">DANH SÁCH SẢN PHẨM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#!edit-product">CHỈNH SỬA SẢN PHẨM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="#!detail-product">CHI TIẾT SẢN PHẨM</a>
+                            </li>
+                        </ul>
+                        <!-- Khu vực đăng ký đăng nhập giỏ hàng -->
+                        <ul class="navbar-nav">
+                            <!-- Icon search -->
+                            <li class="nav-item">
+                                <a href="#" class="btn">
+                                    <i class="fa-solid fa-magnifying-glass fa-beat"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="btn">
+                                    <i class="fa-solid fa-cart-shopping fa-beat"></i>
+                                </a>
+                            </li>
+                            <!-- Icon user đăng nhập đăng ký -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle active" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-user fa-beat"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="01_Sign_in.html">Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="#">Đăng ký</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Khu vực nội dung chính -->
+    </div>
+    <div class="container">
+        <div ng-view>
+
+        </div>
+    </div>
+</body>
+
+</html>

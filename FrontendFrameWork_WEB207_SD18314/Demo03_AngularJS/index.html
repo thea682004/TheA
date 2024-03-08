@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+    <!-- Nhúng AngularJS -->
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+
+    <!-- Khu vực viết code logic -->
+    <script>
+        //Khởi tạo ng-app
+        var app = angular.module('myApp', ['ngRoute']);
+        // Khai báo $routeProvider
+        app.config(function ($routeProvider) {
+            $routeProvider
+                .when('/list-product', {
+                    templateUrl: 'pages/product/list.html',
+                    controller: "listProductCtrl"
+                })
+                .when('/create-product', {
+                    templateUrl: 'pages/product/create.html',
+                    controller:"createProductCtrl"
+                })
+                .when('/detail-product/:id', {
+                    templateUrl: 'pages/product/detail.html',
+                    controller: "detailProductCtrl"
+                })
+                .when('/edit-product/:id', {
+                    templateUrl: 'pages/product/edit.html',
+                    controller: "editProductCtrl"
+                })
+
+
+        })
+
+    </script>
+    <!-- Nhúng sau khu vực khởi tạo ng-app -->
+    <script src="pages/product/list.js"></script>
+    <script src="pages/product/detail.js"></script>
+    <script src="pages/product/edit.js"></script>
+    <script src="pages/product/create.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <!--1. Thiết kế html và khai báo 1 vài đường dẫn điều hướng để kiểm tra hoạt động của route -->
+    <nav class="navbar navbar-expand-sm bg-light">
+
+        <div class="container">
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#!list-product">Trang danh sách</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!create-product">Trang tạo mới</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!detail-product/SP01">Trang chi tiết</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#!edit-product/SP01">Trang sản phẩm</a>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+    <!--Khai báo div.container và ng-view -->
+    <div class="container">
+        <!-- 2.Nội dung trang index.html -->
+        <h1>Đây là nội dung trang index.html</h1>
+        <!-- 3.  -->
+
+        <div ng-view></div>
+    </div>
+</body>
+
+</html>

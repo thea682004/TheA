@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gear TheAnh</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="/lib/bootstrap.css">
+    <script src="/lib/bootstrap.js"></script>
+    <!-- Nhúng Font Icon -->
+    <script src="/lib/font-fontawesome-ae333ffef2.js"></script>
+     <!-- Nhúng Angular -->
+     <script src="/lib/angular.js"></script>
+     <script src="/lib/angular-route.js"></script>
+     <script>
+        var app = angular.module('myApp', []);
+        app.controller('DangKyCtrl', function ($scope, $http) {
+            console.log('ctrl thành công');
+            $scope.createAccount = {
+                ten: '',
+                sdt: '',
+                mail: '',
+                pass: ''
+            }
+
+            $scope.formHople = true;
+            $scope.thongBao = "";
+
+            $scope.onClickCreateAccount = function () {
+                console.log('Onclick create', $scope.createAccount);
+                
+                $scope.formHople = true;
+                $scope.thongBao = "";
+
+
+                if ($scope.createAccount.ten === "") {
+                    $scope.formHople = false;
+                    $scope.thongBao = "Bạn chưa nhập Tên";
+                    return;
+                }
+                if ($scope.createAccount.sdt === "" ) {
+                    $scope.formHople = false;
+                    $scope.thongBao = "Bạn chưa nhập Số điện thoại";
+                    return;
+                }
+                if ($scope.createAccount.mail === "" ) {
+                    $scope.formHople = false;
+                    $scope.thongBao = "Bạn chưa nhập Mail";
+                    return;
+                }
+                if ($scope.createAccount.pass === "") {
+                    $scope.formHople = false;
+                    $scope.thongBao = "Bạn chưa nhập Password";
+                    return;
+                }
+                $http({
+                    method: 'POST',
+                    url: 'http://localhost:3000/signUp',
+                    data: $scope.createAccount
+                }).then(function (reponse) {
+                    alert('Tạo tài khoản thành công')
+                    window.location('pages/product/01_Sign_in.html')
+                })
+
+            }
+        })
+     </script>
+</head>
+
+<body ng-app="myApp" ng-controller="DangKyCtrl">
+    <!-- Khu vực nội dung chính -->
+        
+    <div class="trangDangKy">
+        <div class="container mb-5 mt-2">
+        <h2 class="pt-5">GEAR THEANH</h2>
+        <h2 class="mb-3 mt-3">Đăng ký tài khoản</h2>
+        <div class="d-flex justify-content-end mt-5">
+            <a class="btn btn-secondary" href="index.html">Về Trang Chủ</a>
+        </div> 
+        <div class="border mt-4">
+            <!-- Họ tên -->
+            <div class="mb-3 mt-3">
+                <label for="username" class="form-label">Họ và tên: <span class="text-danger">*</span></label>
+                <input ng-model="createAccount.ten" type="text" class="form-control" id="username" placeholder="Nhập họ tên" name="username"
+                    required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <!-- SĐT -->
+            <div>
+                <label for="phone" class="form-label">Số điện thoại: <span class="text-danger">*</span></label>
+                <input ng-model="createAccount.sdt" class="form-control" id="phone" type="text" placeholder="Nhập số điện thoại" name="phone"
+                    required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <!-- Email -->
+            <div class="mb-3 mt-3">
+                <label for="email" class="form-label">Email: <span class="text-danger">*</span></label>
+                <input ng-model="createAccount.mail" type="email" class="form-control" id="email" placeholder="Nhập email" name="email" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <!-- Mật khẩu -->
+            <div class="mb-3">
+                <label for="pwd" class="form-label">Mật khẩu: <span class="text-danger">*</span></label>
+                <input ng-model="createAccount.pass" type="password" class="form-control" id="pwd" placeholder="Mật khẩu tối thiểu 6 ký tự."
+                    name="pswd" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+            <!-- Ghi nhớ tài khoản -->
+            <div class="form-check mb-3">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" name="remember"> Ghi nhớ
+                </label>
+
+            </div>
+            <div>
+                <span>Đã có tài khoản?</span>
+                <span class="text-right"><a class="btn btn-success" href="pages/product/01_Sign_in.html"> Đăng nhập ngay</a></span>
+            </div>
+        </div>
+        <div class="text-center">
+            <button ng-click="onClickCreateAccount()" type="submit" class="btn btn-danger w-100">Đăng ký</button>
+        </div>
+        <div>
+            <div ng-view>
+        
+            </div>
+         </div>
+    </div>
+    </div>
+
+    <!-- Khu vực Footer -->
+    <footer class="container-fluid">
+        <div class="row bg-dark text-light pt-4 pb-1 shadow d-flex align-items-start">
+            <div class="col-12 col-sm-6 col-md-3">
+
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="px-5 py-5">
+                    <p class="fw-medium fs-6 text-uppercase"
+                        style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Về GEAR THEANH</p>
+                    <p class="fw-light"><i class="fa-solid fa-circle-info" style="color: red;"></i> Giới thiệu</p>
+                    <p class="fw-light"><i class="fa-solid fa-circle-info" style="color: red;"></i> Tuyển dụng</p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="px-5 py-5">
+                    <p class="fw-medium fs-6 text-uppercase"
+                        style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">TỔNG ĐÀI HỖ TRỢ (8:00
+                        -
+                        21:00)</p>
+                    <p class="fw-light"><i class="fa-solid fa-phone" style="color: red;"></i> CSKH: <span
+                            style="color: #477bbe; font-weight: bold;">0973682004</span></p>
+                    <p class="fw-light"><i class="fa-solid fa-screwdriver-wrench" style="color: red;"></i> HTKT:
+                        <span style="color: #477bbe; font-weight: bold;">0973682004</span></p>
+                    <p class="fw-light"><i class="fa-solid fa-envelope" style="color: red;"></i> Email: <span
+                            style="color: #477bbe; font-weight: bold;">thea682004@gmail.com</span></p>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-3">
+                <div class="px-5 py-5">
+                    <p class="fw-medium fs-6 text-uppercase"
+                        style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">KẾT NỐI VỚI CHÚNG TÔi
+                    </p>
+                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                        <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                class="fa-brands fa-facebook fa-beat" style="color: rgb(38, 91, 134);"></i></button>
+                        <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                class="fa-brands fa-instagram fa-beat" style="color: purple;"></i></button>
+                        <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                class="fa-brands fa-tiktok fa-beat" style="color: black;"></i></button>
+                        <button type="button" class="btn btn-secondary rounded-circle me-3"><i
+                                class="fa-brands fa-youtube fa-beat" style="color: red;"></i></button>
+                    </div>
+                </div>
+                <h6>Đăng ký email để nhận tin khuyến mãi</h6>
+                <form class="d-flex" role="search">
+                    <input class="form-control" type="search" placeholder="Nhập Email" aria-label="Search">
+                    <button class="btn btn-danger" type="submit">NHẬN</button>
+                </form>
+            </div>
+
+        </div>
+        <div class="row bg-black text-light text-center pt-4 pb-1 shadow">
+            <p class="fw-light">©Copyright GEAR THEANH. All rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

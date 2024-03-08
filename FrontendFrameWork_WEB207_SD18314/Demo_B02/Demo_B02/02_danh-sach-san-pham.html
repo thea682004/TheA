@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEB207_TaiNguyen_thuvien</title>
+
+    <!-- Nhúng Bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap.css">
+    <script src="lib/bootstrap.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <!-- Khu vực tiêu đề trang -->
+        <h3>Danh sách sản phẩm</h3>
+
+        <!-- Khu vực button -->
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-success">Tạo mới sản phẩm</button>
+        </div>
+
+        <!-- Khu vực bảng -->
+        <table class="table table-bordered mt-2">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Ảnh</th>
+                    <th>Tên sản phẩm</th>
+                    <th>Danh mục</th>
+                    <th>Trạng thái</th>
+                    <th>Tương tác</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SP001</td>
+                    <td>
+                        <div class="border rounded bg-light overflow-hidden d-flex justify-content-center align-items-center" style="height: 80px; width: 80px;">
+                            <img src="img/san-pham_ao-len-01.jpeg" class="mw-100 mh-100">
+                        </div>
+                    </td>
+                    <td>Sản phẩm 001</td>
+                    <td>Danh mục 001</td>
+                    <td>
+                        <span class="badge bg-success rounded-pill">Còn hàng</span>
+                        <!-- <span class="badge bg-danger rounded-pill">Hết hàng</span> -->
+                    </td>
+                    <td style="width: 1px;" class="text-nowrap">
+                        <button class="btn btn-primary btn-sm">Xem</button>
+                        <button class="btn btn-warning btn-sm">Sửa</button>
+                        <button class="btn btn-danger btn-sm">Xoá</button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>SP001</td>
+                    <td>
+                        <div class="border rounded bg-light overflow-hidden d-flex justify-content-center align-items-center"
+                            style="height: 80px; width: 80px;">
+                            <img src="img/banner_01.jpg" class="mw-100 mh-100">
+                        </div>
+                    </td>
+                    <td>Sản phẩm 001</td>
+                    <td>Danh mục 001</td>
+                    <td>
+                        <!-- <span class="badge bg-success rounded-pill">Còn hàng</span> -->
+                        <span class="badge bg-danger rounded-pill">Hết hàng</span>
+                    </td>
+                    <td style="width: 1px;" class="text-nowrap">
+                        <button class="btn btn-primary btn-sm">Xem</button>
+                        <button class="btn btn-warning btn-sm">Sửa</button>
+                        <button class="btn btn-danger btn-sm">Xoá</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+        <!-- Khu vực phân trang -->
+        <div class="d-flex justify-content-center">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
